@@ -1,0 +1,19 @@
+.news-item {
+  margin-bottom: 20px;
+
+  &__title {
+    font-size: 26px;
+    color: #1caae2;
+    margin: 0 0 14px 0;
+  }
+
+  &__num {
+    font-size: 18px;
+    color: gray;
+  }
+
+  &__text {
+    font-size: 20px;
+    margin: 20px 0 0 0;
+  }
+}

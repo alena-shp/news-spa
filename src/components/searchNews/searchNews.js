@@ -1,4 +1,5 @@
 import React from 'react'
+import './searchNews.scss'
 
 const SearchNews = () => {
   return (

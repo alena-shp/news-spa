@@ -1,17 +1,18 @@
 import React from 'react'
+import './addNews.scss'
 
- const AddNews = () => {
+const AddNews = () => {
   return (
     <div className="add-news">
       <form className="add-news-form" onSubmit={() => {}}>
-        <input
+        <textarea
           type="text"
           className="add-news-form__input"
           value=""
           onChange={() => {}}
           placeholder="добавить новость..."
         />
-        <button className="add-news-form__btn">Добавить новость</button>
+        <button className="add-news-form__btn">Добавить</button>
       </form>
     </div>
   )

@@ -5,7 +5,7 @@ import News from './components/news'
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <Header />
       <News />
       Greeting/ News

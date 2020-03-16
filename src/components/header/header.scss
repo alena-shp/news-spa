@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+
+  &__menu {
+    display: flex;
+    align-items: center;
+
+    li {
+      cursor: pointer;
+      list-style-type: none;
+      margin-right: 30px;
+
+      a {
+        font-size: 20px;
+        transition: 0.2s;
+
+        &:hover {
+          color: #1caae2;
+        }
+      }
+    }
+  }
+
+}
