@@ -6,6 +6,7 @@ import { Route } from 'react-router-dom'
 import Header from './components/header'
 import News from './components/news'
 import Greeting from './components/greeting'
+import ModalEntry from './components/modalEntry/modalEntry'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Header />
         <Route path="/" component={Greeting} exact />
         <Route path="/news" component={News} />
+        <ModalEntry />
       </Router>
     </div>
   )

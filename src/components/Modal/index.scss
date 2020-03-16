@@ -1,0 +1,32 @@
+.Modal {
+  background: #ffffff;
+  border-radius: 8px;
+  width: 670px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  &__overlay {
+    background-color: #a0def8;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+  }
+
+  &__header {
+    
+  }
+
+  &__body {
+    padding-top: 50px;
+  }
+
+  &__title {
+    
+  }
+}
