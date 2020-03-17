@@ -1,44 +1,43 @@
 .add-news {
-  &-form {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  &__textarea {
+    border: 1px solid #1caae2;
+    border-radius: 4px;
+    background-color: white;
+    padding: 10px;
+    outline: none;
+    color: black;
+    font-size: 16px;
+    height: 200px;
+    outline: none;
+    resize: none;
+    width: 95%;
+    margin-bottom: 20px;
+  }
+  ::placeholder {
+    color: rgb(197, 196, 196);
+    font-style: italic;
+  }
+
+  &__btn {
+    border: 1px solid #1caae2;
+    border-radius: 4px;
+    font-size: 18px;
+    padding: 14px 10px;
+    color: white;
+    background-color: #1caae2;
+    outline: none;
+    transition: 0.2s;
     width: 100%;
-    &__input {
-      border: 1px solid #1caae2;
-      border-radius: 4px;
-      margin-right: 10px;
-      padding: 14px 10px 10px 16px;
-      background-color: white;
-      font-size: 18px;
-      outline: none;
-      flex-basis: 75%;
-      color: black;
-      height: 24px;
-    }
-    ::placeholder {
-      color: rgb(197, 196, 196);
-      font-style: italic;
-    }
 
-    &__btn {
+    &:hover {
       border: 1px solid #1caae2;
-      border-radius: 4px;
-      padding: 0;
-      flex-basis: 25%;
-      padding: 10px;
-      height: 50px;
-      font-size: 18px;
-      color: white;
-      background-color: #1caae2;
-      outline: none;
-      transition: 0.2s;
-
-      &:hover {
-        border: 1px solid #1caae2;
-        background-color: #c2eeff;
-        color: #1caae2;
-      }
+      background-color: #c2eeff;
+      color: #1caae2;
     }
   }
 }

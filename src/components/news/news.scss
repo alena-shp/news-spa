@@ -1,13 +1,19 @@
 .news {
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
+  width: 100%;
+  margin-top: 30px;
+
+  &__items {
+    flex-basis: 60%;
+    padding-right: 30px;
+  }
 
   &__action {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    max-width: 600px;
-    margin-bottom: 40px;
+    flex-basis: 40%;
+    
+   
   }
 }

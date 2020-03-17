@@ -12,19 +12,17 @@ class AddNews extends React.Component {
   render() {
     return (
       <div className="add-news">
-        <form className="add-news-form">
-          <textarea
-            type="text"
-            className="add-news-form__input"
-            ref={input => {
-              this.textInput = input
-            }}
-            placeholder="добавить новость..."
-          />
-          <button className="add-news-form__btn" onClick={this.onClickNews}>
-            Добавить
-          </button>
-        </form>
+        <textarea
+          type="text"
+          className="add-news__textarea"
+          ref={input => {
+            this.textInput = input
+          }}
+          placeholder="добавить новость..."
+        />
+        <button className="add-news__btn" onClick={this.onClickNews}>
+          Добавить
+        </button>
       </div>
     )
   }

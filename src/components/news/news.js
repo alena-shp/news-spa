@@ -9,12 +9,14 @@ export default class News extends React.Component {
   render() {
     return (
       <div className="news">
-        <div className="news__action">
+        <div className="news__items">
           <SearchNews />
+          <NewsItem />
+        </div>
+        <div className="news__action">
           <AddNews />
           <AdminAction />
         </div>
-        <NewsItem />
       </div>
     )
   }

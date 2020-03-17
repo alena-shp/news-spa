@@ -1,5 +1,13 @@
 .news-item {
   margin-bottom: 20px;
+  width: 100%;
+  max-width: 600px;
+
+  &__title,
+  &__text,
+  &__num {
+    word-break: break-all;
+  }
 
   &__title {
     font-size: 26px;

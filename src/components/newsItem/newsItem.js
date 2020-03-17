@@ -16,7 +16,7 @@ const NewsItem = ({ news }) => {
       </div>
     )
   })
-  return <div>{newsList}</div>
+  return <div className="news-item">{newsList}</div>
 }
 
 const mapStateToProps = state => ({ news: state })
