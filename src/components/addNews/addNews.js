@@ -22,6 +22,7 @@ class AddNews extends React.Component {
           }}
           placeholder="введите название новости..."
         />
+
         <textarea
           type="text"
           className="add-news__textarea-text"
