@@ -10,8 +10,8 @@ const newsReducer = (state = initialState, action) => {
     case ADD_NEWS:
       const news = {
         id: state.length + 1,
-        title: action.news,
-        text: action.news,
+        title: action.title,
+        text: action.text,
         date: date
       }
       return [...state, news]

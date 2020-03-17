@@ -16,9 +16,10 @@ const authorization = bool => {
   }
 }
 
-const newNews = news => ({
+const newNews = (title, text) => ({
   type: ADD_NEWS,
-  news
+  title, 
+  text
 })
 
 const approvedNews = news => {

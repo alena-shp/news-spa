@@ -4,7 +4,6 @@ import './newsItem.scss'
 import { connect } from 'react-redux'
 
 const NewsItem = ({ news }) => {
-  console.log(news)
 
   const newsList = news.map(item => {
     const { id, title, text, date } = item
