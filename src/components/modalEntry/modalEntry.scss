@@ -1,2 +1,23 @@
 .ModalEntry {
+  display: flex;
+  flex-direction: column;
+  padding: 70px 80px 70px 80px;
+  
+
+  &__login,
+  &__password {
+    border: 1px solid #1caae2;
+    border-radius: 4px;
+    padding: 14px 10px 14px 16px;
+    background-color: white;
+    font-size: 18px;
+    outline: none;
+    color: black;
+    margin-bottom: 36px;
+   
+  }
+  ::placeholder {
+    color: rgb(197, 196, 196);
+    font-style: italic;
+  }
 }

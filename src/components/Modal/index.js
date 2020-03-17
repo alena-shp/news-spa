@@ -15,7 +15,7 @@ const Modal = ({ children, title, isOpen, closeModal }) => {
     >
       <header className="Modal__header">
         {title && <h2 className="Modal__title">{title}</h2>}
-        <a href="#0" onClick={closeModal}>
+        <a href="#0" onClick={closeModal} className="Modal__icon">
           <img src={closeIcon} alt="" />
         </a>
       </header>
