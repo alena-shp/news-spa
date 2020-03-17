@@ -3,6 +3,7 @@ import './news.scss'
 import NewsItem from '../newsItem'
 import AddNews from '../addNews'
 import SearchNews from '../searchNews'
+import AdminAction from '../adminAction'
 
 export default class News extends React.Component {
   render() {
@@ -11,6 +12,7 @@ export default class News extends React.Component {
         <div className="news__action">
           <SearchNews />
           <AddNews />
+          <AdminAction />
         </div>
         <NewsItem />
       </div>
