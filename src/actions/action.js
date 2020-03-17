@@ -16,12 +16,10 @@ const authorization = bool => {
   }
 }
 
-const newNews = news => {
-  return {
-    type: ADD_NEWS,
-    news: news
-  }
-}
+const newNews = news => ({
+  type: ADD_NEWS,
+  news
+})
 
 const approvedNews = news => {
   return {
@@ -41,4 +39,4 @@ const approvedNews = news => {
   }
 }
 
-export { user, authorization, newNews, approvedNews}
+export { user, authorization, newNews, approvedNews }

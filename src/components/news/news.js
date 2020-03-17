@@ -13,8 +13,6 @@ export default class News extends React.Component {
           <AddNews />
         </div>
         <NewsItem />
-        <NewsItem />
-        <NewsItem />
       </div>
     )
   }

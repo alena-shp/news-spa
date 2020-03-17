@@ -1,14 +1,24 @@
 import React from 'react'
 import './newsItem.scss'
 
-const NewsItem = () => {
-  return (
-    <div className="news-item">
-      <h3 className="news-item__title">Заголовок</h3>
-      <span className="news-item__num">16 марта 2020</span>
-      <p className="news-item__text">Текст новости</p>
-    </div>
-  )
+import { connect } from 'react-redux'
+
+const NewsItem = ({ news }) => {
+  console.log(news)
+
+  const newsList = news.map(item => {
+    const { id, title, text, date } = item
+    return (
+      <div className="news-item" key={id}>
+        <h3 className="news-item__title">{title}</h3>
+        <p className="news-item__text">{date}</p>
+        <span className="news-item__num">{text}</span>
+      </div>
+    )
+  })
+  return <div>{newsList}</div>
 }
 
-export default NewsItem
+const mapStateToProps = state => ({ news: state })
+
+export default connect(mapStateToProps)(NewsItem)

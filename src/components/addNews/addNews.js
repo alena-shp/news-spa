@@ -30,11 +30,8 @@ class AddNews extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    news: state.news
-  }
-}
+const mapStateToProps = state => ({ news: state })
+
 const mapDispatchToProps = dispatch => {
   return {
     addNews: news => {
