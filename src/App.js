@@ -11,6 +11,7 @@ import ModalEntry from './components/modalEntry/modalEntry'
 function App() {
   return (
     <div className="app">
+      
       <Router>
         <Header />
         <Route path="/" component={Greeting} exact />

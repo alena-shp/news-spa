@@ -1,0 +1,6 @@
+const USER_COME = 'USER_COME'
+const LOG_IN = 'LOG_IN'
+const ADD_NEWS = 'ADD_NEWS'
+const APPROVE_NEWS = 'APPROVE_NEWS'
+
+export { USER_COME, LOG_IN, ADD_NEWS, APPROVE_NEWS }

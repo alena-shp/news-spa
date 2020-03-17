@@ -1,20 +1,46 @@
 import React from 'react'
 import './addNews.scss'
+import { connect } from 'react-redux'
+import { newNews } from './../../actions/action'
 
-const AddNews = () => {
-  return (
-    <div className="add-news">
-      <form className="add-news-form" onSubmit={() => {}}>
-        <textarea
-          type="text"
-          className="add-news-form__input"
-          value=""
-          onChange={() => {}}
-          placeholder="добавить новость..."
-        />
-        <button className="add-news-form__btn">Добавить</button>
-      </form>
-    </div>
-  )
+class AddNews extends React.Component {
+  onClickNews = e => {
+    e.preventDefault()
+    let news = this.textInput.value
+    this.props.addNews(news)
+  }
+  render() {
+    return (
+      <div className="add-news">
+        <form className="add-news-form">
+          <textarea
+            type="text"
+            className="add-news-form__input"
+            ref={input => {
+              this.textInput = input
+            }}
+            placeholder="добавить новость..."
+          />
+          <button className="add-news-form__btn" onClick={this.onClickNews}>
+            Добавить
+          </button>
+        </form>
+      </div>
+    )
+  }
 }
-export default AddNews
+
+const mapStateToProps = state => {
+  return {
+    news: state.news
+  }
+}
+const mapDispatchToProps = dispatch => {
+  return {
+    addNews: news => {
+      return dispatch(newNews(news))
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddNews)
