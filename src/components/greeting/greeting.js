@@ -4,8 +4,7 @@ import './greeting.scss'
 import { connect } from 'react-redux'
 
 const Greeting = ({ user }) => {
-
-  const name = !user ? 'Гость' : user.login
+  const name = user ? user.login : 'Гость'
 
   return (
     <div className="greeting">
