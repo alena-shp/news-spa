@@ -2,13 +2,13 @@ import React from 'react'
 import './adminAction.scss'
 import { connect } from 'react-redux'
 
-const AdminAction = ({news}) => {
+const AdminAction = ({ news }) => {
   console.log(news)
-  const onClickApprove = (e) => {
-    e.preventDefault()
-    
 
+  const onClickApprove = e => {
+    e.preventDefault()
   }
+
   return (
     <div className="admin-action">
       <button className="admin-action__btn-approve" onClick={onClickApprove}>
