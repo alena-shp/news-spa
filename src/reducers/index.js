@@ -1,7 +1,13 @@
-import { ADD_NEWS, APPROVE_NEWS, DELETE_NEWS, SEARCH_NEWS } from './../types'
+import {
+  AUTH_LOGIN,
+  AUTH_LOGOUT,
+  ADD_NEWS,
+  APPROVE_NEWS,
+  DELETE_NEWS,
+  SEARCH_NEWS
+} from './../types'
 
 const initialState = {
-  isAuthorized: false,
   user: null,
   news: [],
   unapprovedNews: {},
@@ -10,6 +16,20 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    case AUTH_LOGIN: {
+      return {
+        ...state,
+        user: {
+          login: action.payload.login
+        }
+      }
+    }
+    case AUTH_LOGOUT: {
+      return {
+        ...state,
+        user: null
+      }
+    }
     case ADD_NEWS: {
       const { id, title, text, date } = action.payload
       const news = {

@@ -1,27 +1,24 @@
 import moment from 'moment'
 import uniqid from 'uniqid'
 import {
-  USER_COME,
-  LOG_IN,
+  AUTH_LOGIN,
+  AUTH_LOGOUT,
   ADD_NEWS,
   APPROVE_NEWS,
   DELETE_NEWS,
   SEARCH_NEWS
 } from './../types'
 
-const user = user => {
+const authLogin = (login, password) => {
   return {
-    type: USER_COME,
-    login: 'Pavel',
-    password: '12345',
-    isAdmin: false
+    type: AUTH_LOGIN,
+    payload: { login, password }
   }
 }
 
-const authorization = bool => {
+const authLogout = () => {
   return {
-    type: LOG_IN,
-    payload: true
+    type: AUTH_LOGOUT
   }
 }
 
@@ -41,4 +38,4 @@ const deleteNews = id => ({ type: DELETE_NEWS, payload: id })
 
 const searchNews = searchText => ({ type: SEARCH_NEWS, payload: searchText })
 
-export { user, authorization, newNews, approveNews, deleteNews, searchNews }
+export { authLogin, authLogout, newNews, approveNews, deleteNews, searchNews }
