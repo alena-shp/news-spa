@@ -1,16 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { getFilteredNew } from '../../selectors'
+import { getFilteredNews, getFilteredUnapprovedNews } from '../../selectors'
 import AdminAction from '../adminAction'
 import './newsItem.scss'
 
-const NewsItem = ({ filteredNews, unapprovedNews }) => {
+const NewsItem = ({ filteredNews, filteredUnapprovedNews }) => {
   return (
     <>
       <div className="news-items news-items--unapproved">
-        {Object.keys(unapprovedNews).map(newsId => {
-          const { title, text, date } = unapprovedNews[newsId]
+        {Object.keys(filteredUnapprovedNews).map(newsId => {
+          const { title, text, date } = filteredUnapprovedNews[newsId]
           return (
             <div className="news-item" key={newsId}>
               <h3 className="news-item__title">{title}</h3>
@@ -38,7 +38,8 @@ const NewsItem = ({ filteredNews, unapprovedNews }) => {
 }
 
 const mapStateToProps = state => ({
-  filteredNews: getFilteredNew(state),
+  filteredNews: getFilteredNews(state),
+  filteredUnapprovedNews: getFilteredUnapprovedNews(state),
   unapprovedNews: state.unapprovedNews
 })
 
