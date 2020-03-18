@@ -1,10 +1,11 @@
-import { ADD_NEWS, APPROVE_NEWS, DELETE_NEWS } from './../types'
+import { ADD_NEWS, APPROVE_NEWS, DELETE_NEWS, SEARCH_NEWS } from './../types'
 
 const initialState = {
   isAuthorized: false,
   user: null,
   news: [],
-  unapprovedNews: {}
+  unapprovedNews: {},
+  searchText: ''
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -45,6 +46,12 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         unapprovedNews: { ...unapprovedNews }
+      }
+    }
+    case SEARCH_NEWS: {
+      return {
+        ...state,
+        searchText: action.payload
       }
     }
     default:

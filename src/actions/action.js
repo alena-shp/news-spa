@@ -5,7 +5,8 @@ import {
   LOG_IN,
   ADD_NEWS,
   APPROVE_NEWS,
-  DELETE_NEWS
+  DELETE_NEWS,
+  SEARCH_NEWS
 } from './../types'
 
 const user = user => {
@@ -38,4 +39,6 @@ const approveNews = id => ({ type: APPROVE_NEWS, payload: id })
 
 const deleteNews = id => ({ type: DELETE_NEWS, payload: id })
 
-export { user, authorization, newNews, approveNews, deleteNews }
+const searchNews = searchText => ({ type: SEARCH_NEWS, payload: searchText })
+
+export { user, authorization, newNews, approveNews, deleteNews, searchNews }
