@@ -22,7 +22,7 @@ class AddNews extends React.Component {
           }}
           placeholder="введите название новости..."
         />
-  
+
         <textarea
           type="text"
           className="add-news__textarea-text"
@@ -41,12 +41,10 @@ class AddNews extends React.Component {
 
 const mapStateToProps = state => ({ news: state })
 
-const mapDispatchToProps = dispatch => {
-  return {
-    addNews: (title, text) => {
-      return dispatch(newNews(title, text))
-    }
+const mapDispatchToProps = dispatch => ({
+  addNews: (title, text) => {
+    return dispatch(newNews(title, text))
   }
-}
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddNews)

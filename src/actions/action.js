@@ -28,11 +28,11 @@ const newNews = (title, text) => ({
   }
 })
 
-const approvedNews = news => {
+const approveNews = id => {
   return {
     type: APPROVE_NEWS,
-    approvedNews
+    payload: id
   }
 }
 
-export { user, authorization, newNews, approvedNews }
+export { user, authorization, newNews, approveNews }
