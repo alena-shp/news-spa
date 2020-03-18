@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-import './header.scss'
-
 import { Link } from 'react-router-dom'
-import ModalEntry from '../modalEntry/modalEntry'
+import { connect } from 'react-redux'
 
-const Header = () => {
+import './header.scss'
+import ModalEntry from '../modalEntry/modalEntry'
+import { authLogout } from './../../actions/action'
+
+const Header = ({ user, authLogout }) => {
   const [isModalEntryOpen, showModal] = useState(false)
 
   const openEntryModal = e => {
@@ -12,10 +14,16 @@ const Header = () => {
     showModal(true)
   }
 
-  const closeEntryModal = e => {
-    e.preventDefault()
+  const closeEntryModal = () => {
     showModal(false)
   }
+
+  const onLogout = e => {
+    e.preventDefault()
+    authLogout()
+  }
+
+  const labelBnt = !user ? 'Вход' : 'Выход'
 
   return (
     <div className="header">
@@ -30,9 +38,9 @@ const Header = () => {
             Новости
           </Link>
         </li>
-        <li>
-          <a href="0#" className="header__link" onClick={openEntryModal}>
-            Вход/Выход
+        <li onClick={openEntryModal}>
+          <a href="0#" className="header__link" onClick={onLogout}>
+            {labelBnt}
           </a>
         </li>
       </ul>
@@ -41,4 +49,6 @@ const Header = () => {
   )
 }
 
-export default Header
+const mapStateToProps = state => ({ user: state.user })
+
+export default connect(mapStateToProps, { authLogout })(Header)

@@ -17,10 +17,12 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case AUTH_LOGIN: {
+      const { login } = action.payload 
       return {
         ...state,
         user: {
-          login: action.payload.login
+          login: login,
+          isAdmin: login === 'admin'
         }
       }
     }
