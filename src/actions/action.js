@@ -1,3 +1,5 @@
+import moment from 'moment'
+import uniqid from 'uniqid'
 import { USER_COME, LOG_IN, ADD_NEWS, APPROVE_NEWS } from './../types'
 
 const user = user => {
@@ -18,25 +20,18 @@ const authorization = bool => {
 
 const newNews = (title, text) => ({
   type: ADD_NEWS,
-  title, 
-  text
+  payload: {
+    title,
+    text,
+    date: moment().format('DD/MM/YYYY'),
+    id: uniqid()
+  }
 })
 
 const approvedNews = news => {
   return {
     type: APPROVE_NEWS,
-    approvedNews: [
-      {
-        title: 'title',
-        text: 'text news',
-        data: 'data'
-      },
-      {
-        title: 'title2',
-        text: 'text news2',
-        data: 'data2'
-      }
-    ]
+    approvedNews
   }
 }
 

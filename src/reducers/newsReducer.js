@@ -2,17 +2,15 @@ import { ADD_NEWS } from './../types'
 
 const initialState = []
 
-const date = `${new Date().getDate()}/${new Date().getMonth() +
-  1}/${new Date().getFullYear()}`
-
 const newsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_NEWS:
+      const { id, title, text, date } = action.payload
       const news = {
-        id: state.length + 1,
-        title: action.title,
-        text: action.text,
-        date: date
+        id,
+        title,
+        text,
+        date
       }
       return [...state, news]
     default:
