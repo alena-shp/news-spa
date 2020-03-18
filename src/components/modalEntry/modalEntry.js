@@ -7,15 +7,26 @@ import { authLogin } from './../../actions/action'
 
 class ModalEntry extends React.Component {
   state = {
+    error: false,
     login: '',
     password: ''
   }
 
-  onLogin = e => {
+  onLogin = () => {
     const { login, password } = this.state
     this.props.authLogin(login, password)
-    this.setState({ login: '', password: '' })
-    this.props.closeModal()
+    this.onCloseModal()
+  }
+
+  onCloseModal = () => {
+    const { login, password } = this.state
+    if (
+      (login === 'admin' && password === 'admin') ||
+      (login === 'user' && password === 'user')
+    ) {
+      this.setState({ login: '', password: '' })
+      this.props.closeModal()
+    }
   }
 
   onChangeLogin = e => {
@@ -29,7 +40,7 @@ class ModalEntry extends React.Component {
   }
 
   render() {
-    const { isOpen, closeModal } = this.props
+    const { isOpen, closeModal, authError } = this.props
     const { login, password } = this.state
 
     return (
@@ -52,9 +63,18 @@ class ModalEntry extends React.Component {
           <button className="ModalEntry__btn" onClick={this.onLogin}>
             Войти
           </button>
+
+          {authError && <p>Данные введены неверно</p>}
         </div>
       </Modal>
     )
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    authError: state.authError,
+    user: state.user
   }
 }
 
@@ -62,4 +82,4 @@ const mapDispatchToProps = dispatch => ({
   authLogin: (login, password) => dispatch(authLogin(login, password))
 })
 
-export default connect(null, mapDispatchToProps)(ModalEntry)
+export default connect(mapStateToProps, mapDispatchToProps)(ModalEntry)

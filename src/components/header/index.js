@@ -22,15 +22,14 @@ const Header = ({ user, authLogout }) => {
     e.preventDefault()
     authLogout()
   }
-  
-  const btn = !user ? (
-    <a href="0#" className="header__link" onClick={openEntryModal}>
-      Вход
+
+  const btn = user ? (
+    <a href="0#" className="header__link" onClick={onLogout}>
+      Выход
     </a>
   ) : (
-    <a href="0#" className="header__link" onClick={onLogout}>
-      {' '}
-      Выход
+    <a href="0#" className="header__link" onClick={openEntryModal}>
+      Вход
     </a>
   )
 

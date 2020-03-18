@@ -9,33 +9,36 @@ import {
 
 const initialState = {
   authError: undefined,
-  user: null,
+  user: undefined,
   news: [],
   unapprovedNews: {},
   searchText: ''
 }
 
-const user = {
-  login: 'user',
-  password: 'user'
-}
-
-const admin = {
-  login: 'admin',
-  password: 'admin'
-}
+const usersList = [
+  {
+    login: 'user',
+    password: 'user'
+  },
+  {
+    login: 'admin',
+    password: 'admin',
+    isAdmin: true
+  }
+]
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case AUTH_LOGIN: {
-      const { login } = action.payload
+      const { login, password } = action.payload
+      const currentUser = usersList.find(
+        user => user.login === login && user.password === password
+      )
+
       return {
         ...state,
-        user: {
-          login: login,
-          isAdmin: login === 'admin'
-        },
-        authError: undefined
+        user: currentUser,
+        authError: currentUser ? undefined : 'error text here'
       }
     }
     case AUTH_LOGOUT: {
