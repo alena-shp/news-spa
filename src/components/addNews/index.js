@@ -22,6 +22,7 @@ class AddNews extends React.Component {
   onClickNews = e => {
     e.preventDefault()
     const { title, text } = this.state
+    if (title.length !==0 && text.length !==0 )
     this.props.addNews(title, text)
     this.setState({ title: '', text: '' })
   }
