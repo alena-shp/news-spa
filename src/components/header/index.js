@@ -22,8 +22,17 @@ const Header = ({ user, authLogout }) => {
     e.preventDefault()
     authLogout()
   }
-
-  const labelBnt = !user ? 'Вход' : 'Выход'
+  
+  const btn = !user ? (
+    <a href="0#" className="header__link" onClick={openEntryModal}>
+      Вход
+    </a>
+  ) : (
+    <a href="0#" className="header__link" onClick={onLogout}>
+      {' '}
+      Выход
+    </a>
+  )
 
   return (
     <div className="header">
@@ -38,11 +47,7 @@ const Header = ({ user, authLogout }) => {
             Новости
           </Link>
         </li>
-        <li onClick={openEntryModal}>
-          <a href="0#" className="header__link" onClick={onLogout}>
-            {labelBnt}
-          </a>
-        </li>
+        <li>{btn}</li>
       </ul>
       <ModalEntry isOpen={isModalEntryOpen} closeModal={closeEntryModal} />
     </div>
