@@ -1,9 +1,9 @@
 import React from 'react'
 import './adminAction.scss'
 import { connect } from 'react-redux'
-import { approveNews } from './../../actions/action'
+import { approveNews, deleteNews } from './../../actions/action'
 
-const AdminAction = ({ newsId, approveNews }) => {
+const AdminAction = ({ newsId, approveNews, deleteNews }) => {
   console.log('AdminAction newsId', newsId)
 
   return (
@@ -14,15 +14,19 @@ const AdminAction = ({ newsId, approveNews }) => {
       >
         Одобрить
       </button>
-      <button className="admin-action__btn-delete">Удалить</button>
+      <button
+        className="admin-action__btn-delete"
+        onClick={() => deleteNews(newsId)}
+      >
+        Удалить
+      </button>
     </div>
   )
 }
 
 const mapDispatchToProps = dispatch => ({
-  approveNews: id => {
-    return dispatch(approveNews(id))
-  }
+  approveNews: id => dispatch(approveNews(id)),
+  deleteNews: id => dispatch(deleteNews(id))
 })
 
 export default connect(null, mapDispatchToProps)(AdminAction)

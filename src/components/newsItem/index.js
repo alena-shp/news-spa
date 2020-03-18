@@ -23,13 +23,13 @@ const NewsItem = ({ news, unapprovedNews }) => {
       </div>
       <div className="news-items news-items--unapproved">
         {Object.keys(unapprovedNews).map(newsId => {
-          const { id, title, text, date } = unapprovedNews[newsId]
+          const { title, text, date } = unapprovedNews[newsId]
           return (
-            <div className="news-item" key={id}>
+            <div className="news-item" key={newsId}>
               <h3 className="news-item__title">{title}</h3>
               <p className="news-item__text">{date}</p>
               <span className="news-item__num">{text}</span>
-              <AdminAction newsId={id} />
+              <AdminAction newsId={newsId} />
             </div>
           )
         })}

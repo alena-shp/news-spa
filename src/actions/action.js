@@ -1,6 +1,12 @@
 import moment from 'moment'
 import uniqid from 'uniqid'
-import { USER_COME, LOG_IN, ADD_NEWS, APPROVE_NEWS } from './../types'
+import {
+  USER_COME,
+  LOG_IN,
+  ADD_NEWS,
+  APPROVE_NEWS,
+  DELETE_NEWS
+} from './../types'
 
 const user = user => {
   return {
@@ -28,11 +34,8 @@ const newNews = (title, text) => ({
   }
 })
 
-const approveNews = id => {
-  return {
-    type: APPROVE_NEWS,
-    payload: id
-  }
-}
+const approveNews = id => ({ type: APPROVE_NEWS, payload: id })
 
-export { user, authorization, newNews, approveNews }
+const deleteNews = id => ({ type: DELETE_NEWS, payload: id })
+
+export { user, authorization, newNews, approveNews, deleteNews }

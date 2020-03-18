@@ -1,4 +1,4 @@
-import { ADD_NEWS, APPROVE_NEWS } from './../types'
+import { ADD_NEWS, APPROVE_NEWS, DELETE_NEWS } from './../types'
 
 const initialState = {
   isAuthorized: false,
@@ -35,6 +35,16 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         news: [...state.news, news],
         unapprovedNews
+      }
+    }
+    case DELETE_NEWS: {
+      const id = action.payload
+      let { unapprovedNews } = state
+      delete unapprovedNews[id]
+
+      return {
+        ...state,
+        unapprovedNews: { ...unapprovedNews }
       }
     }
     default:
