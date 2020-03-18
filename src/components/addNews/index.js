@@ -28,6 +28,15 @@ class AddNews extends React.Component {
 
   render() {
     const { title, text } = this.state
+
+    if (!this.props.user) {
+      return (
+        <p className="add-news__notice">
+          Хотите добавлять новости? <br />
+          Войдите на сайт
+        </p>
+      )
+    }
     return (
       <div className="add-news">
         <h3 className="add-news__title">Добавить новость</h3>
@@ -38,7 +47,6 @@ class AddNews extends React.Component {
           onChange={this.onChangeTitle}
           placeholder="введите название новости..."
         />
-
         <textarea
           type="text"
           className="add-news__textarea-text"
@@ -54,7 +62,10 @@ class AddNews extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({ news: state })
+const mapStateToProps = state => ({
+  news: state,
+  user: state.user
+})
 
 const mapDispatchToProps = dispatch => ({
   addNews: (title, text) => {

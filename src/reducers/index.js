@@ -8,22 +8,34 @@ import {
 } from './../types'
 
 const initialState = {
+  authError: undefined,
   user: null,
   news: [],
   unapprovedNews: {},
   searchText: ''
 }
 
+const user = {
+  login: 'user',
+  password: 'user'
+}
+
+const admin = {
+  login: 'admin',
+  password: 'admin'
+}
+
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case AUTH_LOGIN: {
-      const { login } = action.payload 
+      const { login } = action.payload
       return {
         ...state,
         user: {
           login: login,
           isAdmin: login === 'admin'
-        }
+        },
+        authError: undefined
       }
     }
     case AUTH_LOGOUT: {

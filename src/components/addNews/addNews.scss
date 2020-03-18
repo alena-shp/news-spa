@@ -5,6 +5,14 @@
   justify-content: center;
   width: 100%;
 
+  &__notice {
+    padding: 0;
+    text-align: center;
+    font-size: 20px;
+    margin: 0;
+    color: #1caae2;
+  }
+
   &__title {
     margin: 0 0 30px 0;
     text-transform: uppercase;

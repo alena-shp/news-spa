@@ -1,12 +1,18 @@
 import React from 'react'
 import './greeting.scss'
 
-const Greeting = () => {
+import { connect } from 'react-redux'
+
+const Greeting = ({ user }) => {
+
+  const name = !user ? 'Гость' : user.login
+
   return (
     <div className="greeting">
-      <p>Привет, гость!</p>
+      <p>Привет, {name}!</p>
     </div>
   )
 }
+const mapStateToProps = state => ({ user: state.user })
 
-export default Greeting
+export default connect(mapStateToProps)(Greeting)
