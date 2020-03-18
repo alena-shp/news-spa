@@ -4,8 +4,6 @@ import { connect } from 'react-redux'
 import { approveNews, deleteNews } from './../../actions/action'
 
 const AdminAction = ({ newsId, approveNews, deleteNews }) => {
-  console.log('AdminAction newsId', newsId)
-
   return (
     <div className="admin-action">
       <button

@@ -5,8 +5,6 @@ import { connect } from 'react-redux'
 import AdminAction from '../adminAction'
 
 const NewsItem = ({ news, unapprovedNews }) => {
-  console.log(news, unapprovedNews)
-
   return (
     <>
       <div className="news-items">
